@@ -20,6 +20,8 @@ h1 {
     padding: 5px;
     border-radius: 10px;
     background-color: white;
+    width: 300px;
+    text-align: center;
 }   
 
 button {
@@ -34,7 +36,7 @@ button {
 }
 
 button:hover {
-    color:rgb(175, 175, 175);
+    color: var(--button-color)
 }
 
 button:active {
