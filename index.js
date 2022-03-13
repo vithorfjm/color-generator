@@ -6,11 +6,11 @@ function generateColor () {
     let green = generateNum();
     let blue = generateNum();
     let rgbCode = `rgb(${red}, ${green}, ${blue})`;
-    document.querySelector('main').style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-    document.querySelector("#rgb").innerHTML = rgbCode
-    hover = document.querySelector('#random');
-    hover.style.setProperty('--button-color', rgbCode);
-}
+    document.querySelector('main').style.backgroundColor = rgbCode;
+    document.querySelector('#rgb').innerHTML = rgbCode
+    document.querySelector('#random').style.setProperty('--button-color', rgbCode); // Deixa a cor do "Random" igual a do fundo quando passa o mouse por cima
+    document.querySelector('a').style.color = rgbCode;
+}   
 
 const generateNum = () => {
     return Math.floor(Math.random() * 256)
