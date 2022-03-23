@@ -3,8 +3,43 @@
 * {
     margin: 0;
     padding: 0;
-    
     font-family: 'Merriweather', serif;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 7px;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 10px rgba(19, 19, 19, 0.357);
+}
+
+header h1 {
+    font-size: 1.3rem;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    margin-left: 15px;
+}
+li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+li a:hover {
+    background-color: rgb(213, 213, 213);
 }
 
 main{
@@ -16,18 +51,26 @@ main{
     flex-direction: column;
 }
 
-h1 {
+main h1 {
     margin: 5px auto 5px auto;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     background-color: white;
     font-weight: 700;
     border-radius: 10px;
     padding: 5px;
-    width: 280px;
     text-align: center;
 }
 
-#random {
+#rgb {
+    width: 290px;
+}
+
+#hex {
+    min-width: 140px;
+
+}
+
+button {
     border: none;
     background-color: black;
     color: white;
@@ -38,11 +81,11 @@ h1 {
     box-shadow: 0 5px #474747;
 }
 
-#random:hover {
+button:hover {
     color: var(--button-color)
 }
 
-#random:active {
+button:active {
     box-shadow: 0 3px #474747;
     transform: translateY(3px);
 }
@@ -65,7 +108,7 @@ em {
     font-style: normal;
 }
 
-a {
+footer a {
     color: white;
     font-weight: bolder;
     text-decoration: none;
