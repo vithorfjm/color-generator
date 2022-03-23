@@ -19,4 +19,7 @@ function generateHexNum () {
     return `${num}`;
 }
 
-document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+document.body.addEventListener('touchmove', function(){
+    document.body.style.height = '100vh';
+    document.body.style.overflow = 'hidden';
+});
