@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Merriweather', serif;
+    font-family: 'Oxygen', sans-serif;
     box-sizing: border-box;
 }
 
@@ -20,6 +20,8 @@ header {
 
 header h1 {
     font-size: 1.3rem;
+    color: rgb(77, 134, 240);
+    font-weight: 700;
 }
 
 ul {
@@ -33,7 +35,7 @@ li {
 li a {
     text-decoration: none;
     color: black;
-    font-weight: bold;
+    font-weight: 600;
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -54,7 +56,9 @@ main{
 main h1 {
     margin: 5px auto 5px auto;
     font-size: 1.7rem;
-    background-color: white;
+    /* background-color: white; */
+    background-color: black;
+    color: white;
     font-weight: 700;
     border-radius: 10px;
     padding: 5px;
@@ -62,11 +66,11 @@ main h1 {
 }
 
 #rgb {
-    width: 290px;
+    width: 280px;
 }
 
 #hex {
-    min-width: 140px;
+    min-width: 135px;
 
 }
 

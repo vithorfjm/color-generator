@@ -18,8 +18,3 @@ function generateHexNum () {
     const num = `${values[Math.floor(Math.random() * values.length)]}${values[Math.floor(Math.random() * values.length)]}`;
     return `${num}`;
 }
-
-document.body.addEventListener('touchmove', function(){
-    document.body.style.height = '100vh';
-    document.body.style.overflow = 'hidden';
-});
