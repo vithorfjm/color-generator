@@ -1,20 +1,47 @@
-/* Mudar com Hex */
+// Constantes globais
+const randomBtn = document.querySelector('#random');
+const result = document.querySelector('#hex');
+const copyBtn = document.querySelector('#copy');
 
-document.querySelector('#random').addEventListener('click', () => {
-    const red = generateHexNum();
-    const green = generateHexNum();
-    const blue = generateHexNum();
-    const hexCode = `#${red}${green}${blue}`;
-    document.querySelector('main').style.backgroundColor = hexCode;
-    document.querySelector('#hex').innerHTML = hexCode
-    document.querySelector('#random').style.setProperty('--button-color', hexCode);
-    document.querySelector('#name').style.color = hexCode
-});
+// Executar o programa
+function runProgram () {
+    randomBtn.addEventListener('click', changeColor);
+    copyBtn.classList.add('hidden-btn');
+    copyBtn.addEventListener('click', copyToClipBoard);
+};
 
-/* Geradores dos números isolados */
-
-function generateHexNum () {
-    const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
-    const num = `${values[Math.floor(Math.random() * values.length)]}${values[Math.floor(Math.random() * values.length)]}`;
-    return `${num}`;
+// Mudar a cor do fundo geral e dos botões
+function changeColor () {
+    const main = document.querySelector('main');
+    const hexCode = generateHexColor();
+    const name = document.querySelector('#name');
+    result.innerHTML = hexCode;
+    main.style.backgroundColor = hexCode;
+    name.style.color = hexCode;
+    randomBtn.style.setProperty('--button-color', hexCode);
+    copyBtn.style.setProperty('--button-color', hexCode);
+    copyBtn.classList.remove("hidden-btn");
 }
+
+// Gerar o código hexadecimal
+function generateHexColor () {
+    const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    const red = `${values[Math.floor(Math.random() * values.length)]}${values[Math.floor(Math.random() * values.length)]}`;
+    const green = `${values[Math.floor(Math.random() * values.length)]}${values[Math.floor(Math.random() * values.length)]}`;
+    const blue = `${values[Math.floor(Math.random() * values.length)]}${values[Math.floor(Math.random() * values.length)]}`;
+    return `#${red}${green}${blue}`;
+}
+
+// Copiar o código para a área de transferência
+function copyToClipBoard () {
+    const textArea = document.createElement('textarea');
+    textArea.value = result.innerHTML;
+    document.body.appendChild(textArea);
+    console.log(textArea.value);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('Copied to clipboard.');
+}
+
+runProgram();

@@ -6,7 +6,7 @@ const result = document.querySelector('#rgb');
 // Executa o programa
 function runProgram() {
     randomBtn.addEventListener('click', changeColor);
-    copyBtn.classList.add("hiddenBtn");
+    copyBtn.classList.add("hidden-btn");
     copyBtn.addEventListener('click', copyToClipBoard);
 }
 
@@ -20,9 +20,10 @@ function changeColor () {
     randomBtn.style.setProperty('--button-color', rgbCode);  
     copyBtn.style.setProperty('--button-color', rgbCode);
     name.style.color = rgbCode;
-    copyBtn.classList.remove("hiddenBtn");
+    copyBtn.classList.remove("hidden-btn");
 }
 
+// Gerar código RGB
 function generateRGB () {
     const red = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
@@ -30,16 +31,15 @@ function generateRGB () {
     return `rgb(${red}, ${green}, ${blue})`;
 }
 
+// Copiar o código para a área de transferência
 function copyToClipBoard () {
     const textArea = document.createElement('textarea');
-    // const btnContainer = document.querySelector('#btns_container');
     textArea.value = result.innerHTML;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand('copy');
-    document.body.removeChild(textArea); //
-    // btnContainer.removeChild(textArea);
-    alert('Copied to clipboard')
+    document.body.removeChild(textArea);
+    alert('Copied to clipboard.');
 }
 
 runProgram();
