@@ -1,18 +1,45 @@
-/* Mudar cor RGB */
+// global const
+const randomBtn = document.querySelector('#random');
+const copyBtn = document.querySelector('#copy');
+const result = document.querySelector('#rgb');
 
-document.querySelector('#random').addEventListener('click', () => {
-    const red = generateNum();
-    const green = generateNum();
-    const blue = generateNum();
-    const rgbCode = `rgb(${red}, ${green}, ${blue})`;
-    document.querySelector('main').style.backgroundColor = rgbCode;
-    document.querySelector('#rgb').innerHTML = rgbCode;
-    document.querySelector('#random').style.setProperty('--button-color', rgbCode); // Deixa a cor do "Random" igual a do fundo quando passa o mouse por cima
-    document.querySelector('#name').style.color = rgbCode;
-});
-
-/* Gerar número para cada cor do RGB */
-
-function generateNum () {
-    return Math.floor(Math.random() * 256);
+// Executa o programa
+function runProgram() {
+    randomBtn.addEventListener('click', changeColor);
+    copyBtn.classList.add("hiddenBtn");
+    copyBtn.addEventListener('click', copyToClipBoard);
 }
+
+// Mudar a cor do fundo geral e do fundo dos botões
+function changeColor () {
+    const main = document.querySelector('main');
+    const rgbCode = generateRGB();
+    const name = document.querySelector('#name');
+    main.style.backgroundColor = rgbCode;
+    result.innerHTML = rgbCode;
+    randomBtn.style.setProperty('--button-color', rgbCode);  
+    copyBtn.style.setProperty('--button-color', rgbCode);
+    name.style.color = rgbCode;
+    copyBtn.classList.remove("hiddenBtn");
+}
+
+function generateRGB () {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function copyToClipBoard () {
+    const textArea = document.createElement('textarea');
+    // const btnContainer = document.querySelector('#btns_container');
+    textArea.value = result.innerHTML;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea); //
+    // btnContainer.removeChild(textArea);
+    alert('Copied to clipboard')
+}
+
+runProgram();

@@ -118,3 +118,7 @@ footer a {
     text-decoration: none;
     text-shadow: #FFF 0.6px -0.6px, #FFF -0.6px 0.6px, #FFF 0.6px 0.6px, #FFF -0.6px -0.6px;
 }
+
+#copy.hiddenBtn {
+    display: none;
+}
